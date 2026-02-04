@@ -622,6 +622,14 @@ body {
     margin-top: 1rem;
 }
 
+.skills-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 2rem;
+    letter-spacing: -0.01em;
+}
+
 .skills-grid {
     display: flex;
     gap: 3rem;
@@ -1053,8 +1061,7 @@ body {
     transform: translateX(5px);
 }
 
-.styles-list li:last-child {
-}
+
 
 /* CTA Card - Centered QR Code */
 .cta-card {
