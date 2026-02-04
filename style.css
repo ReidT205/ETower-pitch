@@ -1,0 +1,1187 @@
+:root {
+    --primary-blue: #2563EB;
+    /* High-voltage blue from reference */
+    --primary-gradient: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+    /* Soft Blue Glow Background - Slightly more intense as requested */
+    --bg-gradient: radial-gradient(circle at 10% 10%, #bae6fd 0%, #e0f2fe 50%, #ffffff 100%);
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+    /* Blue-tinted shadow */
+    --shadow-lg: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+    /* Blue-tinted shadow */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Global reset body background, move to individual slides */
+body {
+    background: #f8fafc;
+    /* Fallback */
+    height: 100vh;
+    overflow: hidden;
+    color: var(--text-dark);
+}
+
+.slides-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.slide {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    /* Start off-screen */
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    /* varied backgrounds per slide */
+}
+
+/* Background Variations - "Random" Positions/Intensities */
+#slide-1 {
+    /* Slide 1: Slightly less intense than previous, top-left focus */
+    background: radial-gradient(circle at 15% 15%, #ccecfd 0%, #e0f2fe 40%, #ffffff 100%);
+}
+
+#slide-2 {
+    /* Slide 2: Top-Right focus */
+    background: radial-gradient(circle at 85% 15%, #ccecfd 0%, #f0f9ff 45%, #ffffff 100%);
+}
+
+#slide-3 {
+    /* Slide 3: Bottom-Center focus */
+    background: radial-gradient(circle at 50% 85%, #dbeafe 0%, #f0f9ff 40%, #ffffff 100%);
+}
+
+.slide.active {
+    transform: translateX(-100%);
+    opacity: 1;
+}
+
+.slide.prev {
+    transform: translateX(-200%);
+    /* Move far left */
+    opacity: 0;
+}
+
+.controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    display: none;
+    /* Hidden - use arrow keys to navigate */
+}
+
+/* --- SLIDE 1: VITAL --- */
+/* --- SLIDE 1: VITAL V2 (New Design) --- */
+/* --- SLIDE 1: VITAL DARK MODE (High Fidelity) --- */
+/* Dark mode styles removed/inactive as per new direction */
+.vital-layout-dark {
+    width: 100%;
+    height: 100vh;
+    background-color: #0f172a;
+    /* Deep Navy Background */
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+    position: relative;
+    color: white;
+    box-sizing: border-box;
+}
+
+/* Header */
+.vital-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.vital-title {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #ffd700;
+    /* Gold */
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.vital-subtitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Main Grid */
+.vital-grid {
+    display: flex;
+    gap: 4rem;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Left: Phones */
+.phones-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    border: 3px solid #ffd700;
+    /* Yellow Border Container */
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.phone-mockure {
+    width: 260px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 4px solid #333;
+    background: #000;
+}
+
+.phone-mockure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Right: Stats Cards */
+.stats-column-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+    max-width: 700px;
+}
+
+.stat-card-ribbon {
+    background: #1e293b;
+    /* Lighter Slate for cards */
+    padding: 2rem;
+    border-radius: 4px;
+    /* Sharper corners as per ref */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    min-height: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card 1: AI Heart */
+.card-content-fl {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card-title-yellow {
+    font-size: 1.5rem;
+    color: #ffd700;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-desc-white {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+}
+
+/* Cards 2 & 3: Centered Big Stats */
+.stat-big-center {
+    text-align: center;
+}
+
+.stat-num-gold {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffd700;
+    line-height: 1.1;
+    display: block;
+}
+
+.stat-label-white {
+    font-size: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.white-underline {
+    color: white;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    font-weight: 700;
+}
+
+/* Footer Quote */
+.footer-quote-red {
+    position: absolute;
+    bottom: 2rem;
+    left: 4rem;
+    color: #ff4d4d;
+    /* Bright Red */
+    font-style: italic;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.underline-scribble {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #999;
+}
+
+/* --- SLIDE 1: INTRO (Reid's Pop Vision) --- */
+.intro-layout {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    /* Background handled by body, but ensure transparent here */
+    background: transparent;
+}
+
+.intro-header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    /* Reduced margin to check spacing */
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+/* Typography that 'POPS' like the reference */
+/* One Line Name Request */
+.intro-name-wrapper {
+    display: flex;
+    flex-direction: row;
+    /* One line */
+    align-items: center;
+    gap: 1.5rem;
+    /* Space between first and last name */
+}
+
+.pop-text-dark {
+    font-size: 5.5rem;
+    /* Adjusted slightly for one line fit */
+    font-weight: 900;
+    color: #0f172a;
+    /* Dark Navy/Black */
+    letter-spacing: -0.03em;
+}
+
+.pop-text-blue {
+    font-size: 5.5rem;
+    /* Massive */
+    font-weight: 900;
+    color: #2563EB;
+    /* Electric Blue */
+    letter-spacing: -0.03em;
+}
+
+.intro-year-tag {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: #dbeafe;
+    /* Light blue pill similar to 'Default' in ref */
+    color: #1e40af;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1600px;
+    height: 100%;
+    gap: 4rem;
+    /* Adjusted gap */
+}
+
+/* Grandmother - THE MAIN THING */
+.intro-main-visual {
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+.grandmother-circle-huge {
+    width: 500px;
+    /* Slightly larger */
+    height: 500px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 12px solid white;
+    box-shadow: 0 30px 60px -10px rgba(37, 99, 235, 0.25);
+    /* Blue glow shadow */
+    position: relative;
+}
+
+.grandmother-circle-huge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Vital - Minimal & Secondary */
+.intro-secondary-visual {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 320px;
+    z-index: 4;
+}
+
+/* Layout split for Right Side: Cards + Big Phone */
+.intro-right-column {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* Reduced gap slightly */
+}
+
+.intro-middle-stat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin: 0 -2rem;
+    /* Negative margin to pull it into the gap overlap if needed */
+}
+
+/* Highlighted Stat Card */
+.stat-highlight {
+    background: white;
+    box-shadow: 0 20px 40px -5px rgba(37, 99, 235, 0.2);
+    /* Stronger blue shadow */
+    border: 2px solid #e0f2fe;
+    transform: none;
+}
+
+.stat-highlight:hover {
+    transform: translateY(-5px);
+}
+
+.intro-stats-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.vital-mini-card {
+    background: rgba(255, 255, 255, 0.7);
+    /* Glassy */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.2rem 1.8rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s;
+    min-width: 260px;
+}
+
+.vital-mini-card:hover {
+    transform: translateY(-5px);
+    background: white;
+}
+
+.vital-mini-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 0;
+    font-weight: 800;
+}
+
+.vital-mini-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.vital-phone-mini {
+    width: 200px;
+    margin: 0 auto;
+    filter: drop-shadow(0 20px 40px rgba(37, 99, 235, 0.2));
+}
+
+/* Phone - Far Right and Bigger */
+.vital-phone-container-large {
+    position: relative;
+    z-index: 6;
+}
+
+.vital-phone-large {
+    width: 280px;
+    /* Made bigger as requested */
+    filter: drop-shadow(0 30px 60px rgba(37, 99, 235, 0.25));
+    transform: rotate(-5deg);
+    /* Slight tilt for style? Optional, sticking to straight for now unless users asks */
+    transform: none;
+}
+
+/* --- SLIDE 2: STYLEVANT LAYOUT V2 --- */
+.stylevant-layout-v2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding: 2rem 4rem 1rem 4rem;
+    /* Reduced bottom padding */
+    box-sizing: border-box;
+    position: relative;
+    justify-content: flex-start;
+    gap: 1rem;
+    /* Match sidebar card spacing */
+}
+
+.stylevant-header-v2 {
+    text-align: center;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.stylevant-title-v2 {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #2563EB;
+    /* Stylevant Blue */
+    margin: 0;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.stylevant-subtitle-v2 {
+    font-size: 1.5rem;
+    /* Larger */
+    color: #475569;
+    /* Darker Slate */
+    font-weight: 600;
+    /* Bolder */
+    margin-top: 0.8rem;
+}
+
+/* Main Grid: Video (Left) + Sidebar (Right) */
+.stylevant-main-grid {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0.5rem auto 0;
+    flex: 1;
+    max-height: calc(100vh - 350px);
+    /* More conservative to prevent overlap */
+    min-height: 450px;
+    overflow: visible;
+}
+
+/* Video Container */
+.stylevant-video-container {
+    flex: 3;
+    /* Increased ratio (was 2) to prioritize video size */
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Sidebar */
+.stylevant-sidebar {
+    flex: 1;
+    /* Takes up 1/4 space now */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 0.85rem;
+}
+
+/* ... (skip unchanged) ... */
+
+.qr-placeholder {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: none;
+    padding: 0;
+    /* Reduced from 10px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cta-button-small {
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.cta-button-small:hover {
+    background: #334155;
+}
+
+/* --- SLIDE 3: E-TOWER LAYOUT --- */
+.etower-layout {
+    width: 100%;
+    height: 100vh;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.etower-header {
+    margin-bottom: 3rem;
+}
+
+.etower-header h2 {
+    font-size: 1.5rem;
+    color: #f59e0b;
+    /* Amber/Orange */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.hours-text {
+    font-size: 6rem;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1;
+    margin: 0;
+}
+
+.hours-sub {
+    font-size: 1.8rem;
+    color: #64748b;
+    margin-top: 1rem;
+}
+
+.skills-grid {
+    display: flex;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1400px;
+    justify-content: center;
+}
+
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    flex: 1;
+    text-align: left;
+    border: 1px solid #e2e8f0;
+}
+
+.skill-category h3 {
+    font-size: 1.4rem;
+    color: #3b82f6;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 1rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tag {
+    background: #f8fafc;
+    color: #475569;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid #e2e8f0;
+}
+
+/* Footer Ticker Bar */
+.stylevant-footer-bar {
+    margin-top: 0.5rem;
+    width: 100%;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+    /* Prevent footer from shrinking */
+}
+
+.works-label {
+    font-weight: 700;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.logos-ticker-static {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+    justify-content: space-between;
+    /* Spread logos evenly across full width */
+    align-items: center;
+}
+
+.logo-pill {
+    background: #f1f5f9;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    white-space: nowrap;
+}
+
+/* --- SLIDE 1: VITAL V2 (New Design) --- */
+.vital-layout-v2 {
+    width: 100%;
+    max-width: 1400px;
+    height: 100vh;
+    /* Enforce full height */
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow: hidden;
+    /* Prevent blowout */
+}
+
+.main-title-centered {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.content-row {
+    display: flex;
+    justify-content: center;
+    /* Center content */
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    flex: 1;
+    /* Take remaining height */
+    max-height: 80vh;
+}
+
+/* Grandmother - Left */
+.grandmother-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    /* Constrain container */
+}
+
+.grandmother-frame-large {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    /* Circle crop as requested */
+    overflow: hidden;
+    border: 8px solid white;
+    box-shadow: var(--shadow-lg);
+    flex-shrink: 0;
+    /* Prevent squishing */
+}
+
+.grandmother-img-large {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Remove inline spacing */
+}
+
+/* Stats - Center */
+.stats-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 20;
+    /* Ensure on top */
+}
+
+.stat-card-dark {
+    background: #1e293b;
+    /* Dark Navy/Slate */
+    color: white;
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s;
+}
+
+.stat-card-dark:hover {
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+}
+
+.stat-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.stat-text-center {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.stat-val-dark {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffd700;
+    /* Gold/Yellow accent */
+    margin-bottom: 2px;
+}
+
+.stat-label-dark {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+/* Phone - Right */
+.vital-phone-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    max-width: 400px;
+}
+
+.vital-phone-img {
+    max-height: 500px;
+    /* Hard limit on height */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+}
+
+.vital-caption {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.vital-caption h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.vital-caption p {
+    color: var(--text-muted);
+}
+
+/* --- SLIDE 2: STYLEVANT --- */
+.stylevant-container {
+    max-width: 1400px;
+    width: 100%;
+    text-align: center;
+}
+
+.stylevant-header {
+    margin-bottom: 3rem;
+}
+
+.stylevant-title {
+    font-size: 4rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.stylevant-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+.stylevant-showcase {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+}
+
+.browser-mockup {
+    flex: 2;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.browser-header {
+    background: #f1f5f9;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red {
+    background: #ff5f56;
+}
+
+.yellow {
+    background: #ffbd2e;
+}
+
+.green {
+    background: #27c93f;
+}
+
+.browser-content {
+    flex: 1;
+    background-image: url('stylevant_ui.png');
+    background-size: cover;
+    background-position: top center;
+}
+
+.stylevant-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Reduced from 2rem */
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    text-align: left;
+}
+
+.feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.demo-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.demo-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Sidebar Cards */
+.app-card {
+    background: white;
+    padding: 1.2rem;
+    /* Reduced from 1.5rem */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.sidebar-card {
+    text-align: left;
+    box-shadow: none;
+}
+
+.card-heading-impact {
+    font-size: 1.1rem;
+    /* Reduced from 1.2rem */
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.8rem;
+    /* Reduced from 1rem */
+}
+
+.cta-card .card-heading-impact {
+    font-size: 1.35rem;
+}
+
+/* Customizable Styles Card - Premium Look */
+.styles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.styles-list li {
+    padding: 0.6rem 0.9rem;
+    /* Reduced padding */
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 10px;
+    color: #334155;
+    font-size: 0.95rem;
+    /* Slightly smaller */
+    font-weight: 500;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.styles-list li:hover {
+    background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+    border-color: #93c5fd;
+    transform: translateX(5px);
+}
+
+.styles-list li:last-child {
+}
+
+/* CTA Card - Centered QR Code */
+.cta-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.75rem;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.qr-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.qr-code img {
+    width: 120px;
+    height: 120px;
+}
+
+.logos-strip {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.logo-grid {
+    display: flex;
+    gap: 1rem;
+}
+
+.logo-item {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- SLIDE 3: E-TOWER --- */
+.etower-layout {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.etower-header h2 {
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.hours-text {
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--primary-blue);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.hours-sub {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 4rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.skill-category h3 {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.footer-quote {
+    color: #ef4444;
+    /* Red accent */
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: auto;
+    padding-bottom: 2rem;
+}
+
+/* Footer Logos */
+.footer-logo {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
